@@ -5,6 +5,7 @@ const app = express()
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use(cors())
+app.use(express.static('dist'))
 
 let notes = [
   {
@@ -30,7 +31,7 @@ let notes = [
 ]
 
 app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>')
+  response.send('dist/index.html')
 })
 
 app.get('/api/persons', (request, response) => {
